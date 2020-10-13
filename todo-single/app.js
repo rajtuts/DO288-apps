@@ -10,7 +10,7 @@ model.connect(db.params, function(err) {
 });
 
 var server = restify.createServer() 
-    .use(restify.fullResponse())
+    .use(restify.plugins.acceptParser(server.acceptable))
     .use(restify.queryParser())
     .use(restify.bodyParser());
     

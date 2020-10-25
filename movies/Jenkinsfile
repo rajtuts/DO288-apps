@@ -14,7 +14,7 @@ pipeline {
         DEV_PROJECT = "admin-movies-dev"
         STAGE_PROJECT = "admin-movies-stage"
         APP_GIT_URL = "https://github.com/rajtuts/DO288-apps"
-        NEXUS_SERVER = "http://nexus-admin-movies-dev.2886795310-80-host03nc.environments.katacoda.com/nexus/content/groups/public/"
+        NEXUS_SERVER = "nexus-admin-movies-dev.2886795274-80-host20nc.environments.katacoda.com/nexus/content/groups/public"
 
         // DO NOT CHANGE THE GLOBAL VARS BELOW THIS LINE
         APP_NAME = "movies"

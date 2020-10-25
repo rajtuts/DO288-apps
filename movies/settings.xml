@@ -5,7 +5,7 @@
          <id>internal-repository</id>
          <name>Maven Repository Manager for classroom</name>
          <!-- // TODO: Change the url attribute to the nexus proxy server URL for your environment. -->
-         <url>nexus-admin-movies-dev.2886795274-80-host20nc.environments.katacoda.com/nexus/content/groups/public</url>
+         <url>http://nexus-admin-nexus.2886795274-80-host17nc.environments.katacoda.com/nexus/content/groups/public</url>
          <mirrorOf>*</mirrorOf>
          </mirror>
        </mirrors>

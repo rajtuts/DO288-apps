@@ -54,7 +54,7 @@ pipeline {
                 echo '### Cleaning existing resources in DEV env ###'
                 sh '''
                         oc project ${DEV_PROJECT}
-			oc new-app --name books jodejs:8~${APP_GIT_URL} \
+			oc new-app --name books nodejs:latest~${APP_GIT_URL} \
 			--build-env npm_config_registry=${NEXUS_SERVER} \
 			--context-dir ${APP_NAME}
                         oc expose svc/${APP_NAME}

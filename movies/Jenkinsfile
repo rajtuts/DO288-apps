@@ -11,8 +11,8 @@ pipeline {
 
     environment {
         //TODO: Customize these variables for your environment
-        DEV_PROJECT = "youruser-movies-dev"
-        STAGE_PROJECT = "youruser-movies-stage"
+        DEV_PROJECT = "admin-movies-dev"
+        STAGE_PROJECT = "admin-movies-stage"
         APP_GIT_URL = "https://github.com/rajtuts/DO288-apps"
         NEXUS_SERVER = "http://nexus-admin-movies-dev.2886795277-80-host20nc.environments.katacoda.com/nexus/content/groups/public/"
 

@@ -81,10 +81,10 @@ pipeline {
                       }
                     }
                 }
-                // TODO: Create a new OpenShift application based on the ${APP_NAME}:latest image stream
+                sh '''
 				oc new-app ${APP_NAME}:latest -n ${DEV_PROJECT}
-                // TODO: Expose the ${APP_NAME} service for external access
 				oc expose svc/${APP_NAME} -n ${DEV_PROJECT}
+		   '''
             }
         }
 

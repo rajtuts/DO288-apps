@@ -1,5 +1,4 @@
 var restify = require('restify');
-const restifyPlugins = require('restify-plugins');
 var controller = require('./controllers/items');
 var serverinfo = require('./controllers/serverinfo');
 
@@ -20,10 +19,9 @@ const server = restify.createServer({
   version: config.version,
 });
 
-server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
-server.use(restifyPlugins.acceptParser(server.acceptable));
-server.use(restifyPlugins.queryParser({ mapParams: true }));
-server.use(restifyPlugins.fullResponse());
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
     
 controller.context(server, '/todo/api', model); 
 serverinfo.context(server, '/todo/api');

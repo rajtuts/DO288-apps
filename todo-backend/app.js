@@ -10,11 +10,11 @@ model.connect(db.params, function(err) {
     if (err) throw err;
 });
 
-var server = restify.createServer() 
-    .use(restify.fullResponse())
-    .use(restify.queryParser())
-    .use(restify.bodyParser())
-    .use(restify.CORS());;
+const server = restify.createServer();
+
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
     
 controller.context(server, '/todo/api', model); 
 serverinfo.context(server, '/todo/api');

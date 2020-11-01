@@ -14,10 +14,7 @@ model.connect(db.params, function(err) {
 //    .use(restify.queryParser())
 //    .use(restify.bodyParser())
 //    .use(restify.CORS());;
-const server = restify.createServer({
-  name: config.name,
-  version: config.version,
-});
+const server = restify.createServer();
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());

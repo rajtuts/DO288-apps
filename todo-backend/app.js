@@ -1,5 +1,5 @@
 var restify = require('restify');
-
+const restifyPlugins = require('restify-plugins');
 var controller = require('./controllers/items');
 var serverinfo = require('./controllers/serverinfo');
 
@@ -10,11 +10,20 @@ model.connect(db.params, function(err) {
     if (err) throw err;
 });
 
-var server = restify.createServer() 
-    .use(restify.fullResponse())
-    .use(restify.queryParser())
-    .use(restify.bodyParser())
-    .use(restify.CORS());;
+//var server = restify.createServer() 
+//    .use(restify.fullResponse())
+//    .use(restify.queryParser())
+//    .use(restify.bodyParser())
+//    .use(restify.CORS());;
+const server = restify.createServer({
+  name: config.name,
+  version: config.version,
+});
+
+server.use(restifyPlugins.jsonBodyParser({ mapParams: true }));
+server.use(restifyPlugins.acceptParser(server.acceptable));
+server.use(restifyPlugins.queryParser({ mapParams: true }));
+server.use(restifyPlugins.fullResponse());
     
 controller.context(server, '/todo/api', model); 
 serverinfo.context(server, '/todo/api');
